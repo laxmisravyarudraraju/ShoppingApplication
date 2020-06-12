@@ -1,5 +1,9 @@
 import React from "react";
 
 export const Footer = (props) => {
-  return <React.Fragment>Hello from Footer file</React.Fragment>;
+  return (
+    <React.Fragment>
+      <div> Hello from Footer file </div>
+    </React.Fragment>
+  );
 };
