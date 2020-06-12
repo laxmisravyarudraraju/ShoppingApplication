@@ -2,9 +2,15 @@ import React from "react";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import { Homepage } from "./components/Homepage";
+
 class App extends React.Component {
   render() {
-    return <h1>Hello Sravya, Just for testing</h1>;
+    return (
+      <React.Fragment>
+        <Homepage />
+      </React.Fragment>
+    );
   }
 }
 
