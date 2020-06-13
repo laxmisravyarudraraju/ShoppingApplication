@@ -34,10 +34,16 @@ export const CategoryList = (props) => {
   return (
     <React.Fragment>
       <Grid container spacing={1}>
-        <Grid item xs={4} className={classes.item}>
+        <Grid item xs={6} className={classes.item}>
           <div className={classes.container}>
             <div className={classes.wrapper}></div>
-            <Category img="/static/img/jackets.jpg" alt="Jackets" />
+            <Category img="/static/img/men.webp" alt="Men" />
+          </div>
+        </Grid>
+        <Grid item xs={6} className={classes.item}>
+          <div className={classes.container}>
+            <div className={classes.wrapper}></div>
+            <Category img="/static/img/women.jpg" alt="Women" />
           </div>
         </Grid>
         <Grid item xs={4} className={classes.item}>
@@ -49,19 +55,13 @@ export const CategoryList = (props) => {
         <Grid item xs={4} className={classes.item}>
           <div className={classes.container}>
             <div className={classes.wrapper}></div>
-            <Category img="/static/img/watches.jpg" alt="Accessories" />
+            <Category img="/static/img/jackets.jpg" alt="Jackets" />
           </div>
         </Grid>
         <Grid item xs={4} className={classes.item}>
           <div className={classes.container}>
             <div className={classes.wrapper}></div>
-            <Category img="/static/img/men.webp" alt="Men" />
-          </div>
-        </Grid>
-        <Grid item xs={8} className={classes.item}>
-          <div className={classes.container}>
-            <div className={classes.wrapper}></div>
-            <Category img="/static/img/women.jpg" alt="Women" />
+            <Category img="/static/img/watches.jpg" alt="Accessories" />
           </div>
         </Grid>
       </Grid>
