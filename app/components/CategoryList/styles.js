@@ -5,7 +5,7 @@ export default {
   item: {
     height: "42.5vh",
     overflow: "hidden",
-    border: "solid 0.5px #eee",
+    border: "solid 3px #eee",
   },
   container: {
     height: "100%",

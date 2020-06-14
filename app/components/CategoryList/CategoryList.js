@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Typography } from "@material-ui/core";
@@ -10,12 +11,14 @@ import CategoryListData from "./CategoryListData";
 const useStyles = makeStyles((theme) => CategoryListStyles);
 
 export const CategoryList = (props) => {
+  const [categories, setCategories] = useState(CategoryListData);
+
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <Grid container spacing={0} className={classes.root}>
-        {CategoryListData.map((data) => (
+        {categories.map((data) => (
           <Grid key={data.id} item xs={data.col} className={classes.item}>
             <div className={classes.container}>
               <div className={classes.wrapper}></div>
