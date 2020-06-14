@@ -9,20 +9,9 @@ import {
   IconButton,
 } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
-  appbar: {
-    backgroundColor: "#d18888",
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-    textTransform: "uppercase",
-    fontWeight: 600,
-    letterSpacing: "1px",
-  },
-}));
+import HeaderStyles from "./styles";
+
+const useStyles = makeStyles((theme) => HeaderStyles);
 
 export const Header = (props) => {
   const classes = useStyles();
