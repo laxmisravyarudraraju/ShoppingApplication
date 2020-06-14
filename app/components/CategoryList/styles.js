@@ -3,9 +3,9 @@ export default {
     marginTop: "2px",
   },
   item: {
-    height: "50vh",
+    height: "42.5vh",
     overflow: "hidden",
-    border: "solid 0.5px #ccc",
+    border: "solid 0.5px #eee",
   },
   container: {
     height: "100%",
@@ -17,13 +17,13 @@ export default {
       transform: "scale(1.06)",
     },
     "&:active": {
-      transform: "scale(0.98)",
+      transform: "scale(0.95)",
     },
     cursor: "pointer",
   },
   wrapper: {
     backgroundColor: "#000",
-    opacity: 0.7,
+    opacity: 0.5,
     position: "absolute",
     top: 0,
     height: "100%",
@@ -35,8 +35,8 @@ export default {
     left: "50%",
     transform: "translate(-50%, -50%)",
     zIndex: 100,
-    color: "#ccc",
-    opacity: 0.7,
+    color: "#eee",
+    opacity: 0.9,
     borderRadius: "3px",
     textTransform: "capitalise",
     letterSpacing: "1px",

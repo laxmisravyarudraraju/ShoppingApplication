@@ -25,10 +25,10 @@ export const Header = (props) => {
           <Typography variant="subtitle1" className={classes.title}>
             Shopify
           </Typography>
-          <IconButton color="inherit">
+          <IconButton className={classes.button}>
             <LocalMallRoundedIcon />
           </IconButton>
-          <Button color="inherit" style={{ fontWeight: 600 }}>
+          <Button className={classes.button} style={{ fontWeight: 600 }}>
             Login
           </Button>
         </Toolbar>
