@@ -97,4 +97,3 @@ export const CategoryList = (props) => {
     </React.Fragment>
   );
 };
->>>>>>> category
