@@ -1,8 +1,5 @@
 import React from "react";
 
-<<<<<<< HEAD
-export const Footer = (props) => <React.Fragment></React.Fragment>;
-=======
 export const Footer = (props) => {
   return (
     <React.Fragment>
@@ -10,4 +7,3 @@ export const Footer = (props) => {
     </React.Fragment>
   );
 };
->>>>>>> category

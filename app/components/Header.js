@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const Header = (props) => {
-<<<<<<< HEAD
   const classes = useStyles();
 
   return (
@@ -40,11 +39,6 @@ export const Header = (props) => {
           </Button>
         </Toolbar>
       </AppBar>
-=======
-  return (
-    <React.Fragment>
-      <div>Hello from Header file</div>
->>>>>>> category
     </React.Fragment>
   );
 };
