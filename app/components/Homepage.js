@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, GridList, GridListTile } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { Header } from "./Header";
@@ -14,19 +14,17 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     backgroundColor: theme.palette.background.paper,
   },
-  gridList: {
-    width: "100%",
-    height: "100%",
-  },
 }));
 export const Homepage = (props) => {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="md">
+    // <Container maxWidth="lg">
+    <React.Fragment>
       <Header />
       <CategoryList />
       <Footer />
-    </Container>
+    </React.Fragment>
+    // </Container>
   );
 };
