@@ -29,6 +29,9 @@ export const Header = (props) => {
             <LocalMallRoundedIcon />
           </IconButton>
           <Button className={classes.button} style={{ fontWeight: 600 }}>
+            Contact
+          </Button>
+          <Button className={classes.button} style={{ fontWeight: 600 }}>
             Login
           </Button>
         </Toolbar>

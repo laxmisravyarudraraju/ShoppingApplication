@@ -20,13 +20,7 @@ export const CategoryList = (props) => {
       <Grid container spacing={0} className={classes.root}>
         {categories.map((data) => (
           <Grid key={data.id} item xs={data.col} className={classes.item}>
-            <div className={classes.container}>
-              <div className={classes.wrapper}></div>
-              <div className={classes.title}>
-                <Typography variant="h6">{data.title}</Typography>
-              </div>
-              <Category img={data.img} alt="Men" />
-            </div>
+            <Category title={data.title} img={data.img} />
           </Grid>
         ))}
       </Grid>
