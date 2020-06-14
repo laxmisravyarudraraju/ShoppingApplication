@@ -1,6 +1,6 @@
 export default {
   root: {
-    flexGrow: 1,
+    marginTop: "5px",
   },
   item: {
     height: "50vh",
@@ -13,7 +13,7 @@ export default {
   },
   wrapper: {
     backgroundColor: "#000",
-    opacity: 0.8,
+    opacity: 0.7,
     position: "absolute",
     top: 0,
     height: "100%",

@@ -13,7 +13,7 @@ export const CategoryList = (props) => {
 
   return (
     <React.Fragment>
-      <Grid container spacing={1}>
+      <Grid container spacing={1} className={classes.root}>
         <Grid item xs={6} className={classes.item}>
           <div className={classes.container}>
             <div className={classes.wrapper}></div>
