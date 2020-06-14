@@ -16,7 +16,7 @@ export const CategoryList = (props) => {
     <React.Fragment>
       <Grid container spacing={0} className={classes.root}>
         {CategoryListData.map((data) => (
-          <Grid item xs={data.col} className={classes.item}>
+          <Grid key={data.id} item xs={data.col} className={classes.item}>
             <div className={classes.container}>
               <div className={classes.wrapper}></div>
               <div className={classes.title}>
