@@ -1,15 +1,22 @@
 export default {
   root: {
-    marginTop: "4px",
+    marginTop: "2px",
   },
   item: {
     height: "50vh",
+    overflow: "hidden",
+    border: "solid 0.5px #ccc",
   },
   container: {
     height: "100%",
     width: "100%",
     overflow: "hidden",
     position: "relative",
+    transition: "all 0.5s ease-in-out",
+    "&:hover": {
+      transform: "scale(1.06)",
+    },
+    cursor: "pointer",
   },
   wrapper: {
     backgroundColor: "#000",
