@@ -16,6 +16,9 @@ export default {
     "&:hover": {
       transform: "scale(1.06)",
     },
+    "&:active": {
+      transform: "scale(0.98)",
+    },
     cursor: "pointer",
   },
   wrapper: {
