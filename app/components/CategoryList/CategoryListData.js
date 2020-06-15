@@ -1,32 +1,32 @@
 export default [
   {
+    title: "Sneakers",
+    img: "/static/img/sneakers.png",
+    col: 4,
+    id: "sneakers",
+  },
+  {
+    title: "Jackets",
+    img: "/static/img/jackets.png",
+    col: 4,
+    id: "jackets",
+  },
+  {
+    title: "Hats",
+    img: "/static/img/hats.png",
+    col: 4,
+    id: "hats",
+  },
+  {
     title: "Men's",
-    img: "/static/img/men.webp",
+    img: "/static/img/men.png",
     col: 6,
     id: "men",
   },
   {
     title: "Women's",
-    img: "/static/img/women.jpg",
+    img: "/static/img/women.png",
     col: 6,
     id: "women",
-  },
-  {
-    title: "Bags",
-    img: "/static/img/bags.jpg",
-    col: 4,
-    id: "bags",
-  },
-  {
-    title: "Jackets",
-    img: "/static/img/jackets.jpg",
-    col: 4,
-    id: "jackets",
-  },
-  {
-    title: "Watches",
-    img: "/static/img/watches.jpg",
-    col: 4,
-    id: "watches",
   },
 ];

@@ -10,6 +10,6 @@ export default {
     color: "#575252",
   },
   button: {
-    color: "#54969e",
+    color: "#30868c",
   },
 };
