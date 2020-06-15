@@ -3,7 +3,7 @@ export default {
     marginTop: "2px",
   },
   item: {
-    height: "42.5vh",
+    height: "42.9vh",
     overflow: "hidden",
     border: "solid 3px #eee",
   },

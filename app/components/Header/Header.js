@@ -31,7 +31,12 @@ export const Header = (props) => {
           <Button className={classes.button} style={{ fontWeight: 600 }}>
             Contact
           </Button>
-          <Button className={classes.button} style={{ fontWeight: 600 }}>
+          <Button
+            className={classes.button}
+            color="secondary"
+            variant="outlined"
+            style={{ fontWeight: 600 }}
+          >
             Login
           </Button>
         </Toolbar>

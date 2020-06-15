@@ -7,10 +7,6 @@ export default {
     overflow: "hidden",
     position: "relative",
     transition: "all 0.5s ease-in-out",
-    "&:hover": {
-      transform: "scale(1.06)",
-      zIndex: 100,
-    },
     "&:active": {
       transform: "scale(0.95)",
     },
@@ -40,7 +36,19 @@ export default {
   buttonContainer: {
     zIndex: 200,
     position: "absolute",
-    top: 0,
-    color: "#ddd",
+    top: "2px",
+    left: "4px",
+    color: "#8dc492",
+    width: "fit-content",
+  },
+  priceBox: {
+    position: "absolute",
+    bottom: "7%",
+    left: "50%",
+    transform: "translateX(-50%)",
+    padding: "3px 15px",
+    border: "solid 1px #ccc",
+    color: "#ffaca8",
+    borderRadius: "3px",
   },
 };

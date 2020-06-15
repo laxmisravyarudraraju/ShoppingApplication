@@ -9,12 +9,17 @@ import CategoryItemStyles from "./styles";
 const useStyles = makeStyles(CategoryItemStyles);
 
 const styles = {
-  width: "100%",
-  height: "100%",
-  objectFit: "cover",
+  img: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  },
+  button: {
+    fontSize: "12px",
+  },
 };
 
-export const CategoryItem = ({ name, imgUrl }) => {
+export const CategoryItem = ({ name, imageUrl, price }) => {
   const classes = useStyles();
 
   return (
@@ -22,16 +27,16 @@ export const CategoryItem = ({ name, imgUrl }) => {
       <div className={classes.container}>
         <div className={classes.wrapper}></div>
         <div className={classes.title}>
-          <Typography variant="h6">{name}</Typography>
+          <Typography variant="subtitle1">{name}</Typography>
         </div>
-        <img src={imgUrl} alt={name} style={styles} />
+        <img src={imageUrl} alt={name} style={styles.img} />
+        <Button variant="outlined" color="inherit" className={classes.priceBox}>
+          SHOP AT ${price}
+        </Button>
         <div className={classes.buttonContainer}>
-          <IconButton color="secondary">
+          <IconButton color="inherit">
             <FavoriteOutlined />
           </IconButton>
-          <Button variant="outlined" color="secondary">
-            Add to Cart
-          </Button>
         </div>
       </div>
     </React.Fragment>
