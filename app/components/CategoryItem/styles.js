@@ -1,3 +1,5 @@
+import { FormHelperText } from "@material-ui/core";
+
 export default {
   container: {
     height: "100%",
@@ -27,12 +29,18 @@ export default {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    textAlign: "center",
     zIndex: 100,
     color: "#eee",
     opacity: 0.9,
     borderRadius: "3px",
     textTransform: "capitalise",
     letterSpacing: "1px",
+    textAlign: "center",
+  },
+  buttonContainer: {
+    zIndex: 200,
+    position: "absolute",
+    top: 0,
+    color: "#ddd",
   },
 };
