@@ -20,11 +20,6 @@ module.exports = {
     ],
   },
   mode: "development",
-  //   plugins: [
-  //     new HtmlWebpackPlugin({
-  //       template: "dist/index.html",
-  //     }),
-  //   ],
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     historyApiFallback: true,
