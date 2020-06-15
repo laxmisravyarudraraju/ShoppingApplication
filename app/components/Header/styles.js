@@ -17,4 +17,8 @@ export default {
   button: {
     color: "#30868c",
   },
+  headerNavBox: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
 };

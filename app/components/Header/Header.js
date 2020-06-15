@@ -23,24 +23,34 @@ export const Header = (props) => {
   return (
     <React.Fragment>
       <AppBar className={classes.appbar} position="static">
-        <Toolbar>
-          <Typography variant="subtitle1" className={classes.title}>
-            Shopify
-          </Typography>
-          <IconButton className={classes.button}>
-            <LocalMallRoundedIcon />
-          </IconButton>
-          <Button className={classes.button} style={{ fontWeight: 600 }}>
-            Contact
-          </Button>
-          <Button
-            className={classes.button}
-            color="secondary"
-            variant="outlined"
-            style={{ fontWeight: 600 }}
-          >
-            Login
-          </Button>
+        <Toolbar className={classes.headerNavBox}>
+          <Link className="link" to="/">
+            <Typography variant="subtitle1" className={classes.title}>
+              Shopify
+            </Typography>
+          </Link>
+          <div className={classes.headerNav}>
+            <Link className="link" to="/shop">
+              <IconButton className={classes.button}>
+                <LocalMallRoundedIcon />
+              </IconButton>
+            </Link>
+            <Link className="link" to="/contact">
+              <Button className={classes.button} style={{ fontWeight: 600 }}>
+                Contact
+              </Button>
+            </Link>
+            <Link className="link" to="/login">
+              <Button
+                className={classes.button}
+                color="secondary"
+                variant="outlined"
+                style={{ fontWeight: 600 }}
+              >
+                Login
+              </Button>
+            </Link>
+          </div>
         </Toolbar>
       </AppBar>
     </React.Fragment>

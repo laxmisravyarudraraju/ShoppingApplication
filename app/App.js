@@ -8,6 +8,8 @@ import { Header } from "./components/Header/Header";
 import { Homepage } from "./components/Homepage/Homepage";
 import { Shoppage } from "./components/Shoppage/Shoppage";
 
+import "./styles.css";
+
 class App extends React.Component {
   render() {
     return (
