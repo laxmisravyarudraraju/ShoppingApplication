@@ -43,7 +43,7 @@ export const Header = (props) => {
             <Link className="link" to="/login">
               <Button
                 className={classes.button}
-                color="secondary"
+                color="primary"
                 variant="outlined"
                 style={{ fontWeight: 600 }}
               >

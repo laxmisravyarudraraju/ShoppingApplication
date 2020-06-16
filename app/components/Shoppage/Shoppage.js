@@ -11,14 +11,20 @@ import { Preview } from "../Preview/Preview";
 
 const useStyles = makeStyles(ShoppageStyles);
 
-export const Shoppage = (props) => {
-  console.log(props);
+export const ShopPage = (props) => {
   const [items, setItems] = useState(ShopData);
 
   const classes = useStyles();
 
   return (
     <React.Fragment>
+      <Typography
+        variant="h6"
+        style={{ marginTop: "30px", textAlign: "center" }}
+        className={classes.title}
+      >
+        Collections
+      </Typography>
       {items.map((item) => (
         <div key={item.id} className={classes.previewWrapper}>
           <Typography variant="subtitle1" className={classes.title}>

@@ -6,7 +6,8 @@ import { Container } from "@material-ui/core";
 
 import { Header } from "./components/Header/Header";
 import { Homepage } from "./components/Homepage/Homepage";
-import { Shoppage } from "./components/Shoppage/Shoppage";
+import { ShopPage } from "./components/ShopPage/ShopPage";
+import { LoginPage } from "./components/LoginPage/LoginPage";
 
 import "./styles.css";
 
@@ -17,7 +18,8 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path="/shop" component={Shoppage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/login" component={LoginPage} />
         </Switch>
       </Container>
     );
