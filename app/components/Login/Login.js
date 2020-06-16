@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { TextField, Typography, Button } from "@material-ui/core";
 
 import LoginPageStyles from "./../LoginPage/styles";
+import { signInWithGoogle } from "../../firebase/firebase.config";
 
 const useStyles = makeStyles(LoginPageStyles);
 
@@ -65,7 +66,11 @@ export const Login = (props) => {
           <Button color="primary" variant="outlined" type="submit">
             login
           </Button>
-          <Button color="secondary" variant="outlined">
+          <Button
+            color="secondary"
+            variant="outlined"
+            onClick={signInWithGoogle}
+          >
             Sign in with google
           </Button>
         </div>
