@@ -17,14 +17,16 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    const unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
     });
+
+    return unsubscribeFromAuth;
   });
 
   return (
     <Container maxWidth="lg">
-      <Header />
+      <Header currentUser={currentUser} />
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route path="/shop" component={ShopPage} />

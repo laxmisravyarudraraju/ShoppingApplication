@@ -13,6 +13,8 @@ import {
 
 import LocalMallRoundedIcon from "@material-ui/icons/LocalMallRounded";
 
+import { auth } from "../../firebase/firebase.config";
+
 import HeaderStyles from "./styles";
 
 const useStyles = makeStyles((theme) => HeaderStyles);
@@ -40,16 +42,30 @@ export const Header = (props) => {
                 Contact
               </Button>
             </Link>
-            <Link className="link" to="/login">
-              <Button
-                className={classes.button}
-                color="primary"
-                variant="outlined"
-                style={{ fontWeight: 600 }}
-              >
-                Login
-              </Button>
-            </Link>
+            {props.currentUser ? (
+              <Link className="link" to="/">
+                <Button
+                  className={classes.button}
+                  color="primary"
+                  variant="outlined"
+                  style={{ fontWeight: 600 }}
+                  onClick={() => auth.signOut()}
+                >
+                  Logout
+                </Button>
+              </Link>
+            ) : (
+              <Link className="link" to="/login">
+                <Button
+                  className={classes.button}
+                  color="primary"
+                  variant="outlined"
+                  style={{ fontWeight: 600 }}
+                >
+                  Login
+                </Button>
+              </Link>
+            )}
           </div>
         </Toolbar>
       </AppBar>
