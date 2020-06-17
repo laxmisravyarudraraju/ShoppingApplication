@@ -11,7 +11,6 @@ import LoginPageStyles from "./styles";
 const useStyles = makeStyles(LoginPageStyles);
 
 export const LoginPage = (props) => {
-  console.log(props);
   const classes = useStyles();
 
   return (

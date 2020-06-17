@@ -5,14 +5,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import { TextField, Typography, Button } from "@material-ui/core";
 
 import LoginPageStyles from "./../LoginPage/styles";
-import { signInWithGoogle } from "../../firebase/firebase.config";
+import { signInWithGoogle, auth } from "../../firebase/firebase.config";
 
 const useStyles = makeStyles(LoginPageStyles);
-
-const handleSubmit = (e) => {
-  e.preventDefault();
-  console.log("form submitted");
-};
 
 export const Login = (props) => {
   const classes = useStyles();
@@ -22,17 +17,19 @@ export const Login = (props) => {
     password: "",
   };
 
-  const [Logininfo, setLoginInfo] = useState(initialValues);
+  const [LoginInfo, setLoginInfo] = useState(initialValues);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const { email, password } = LoginInfo;
+    await auth.signInWithEmailAndPassword(email, password);
     setLoginInfo(initialValues);
   };
 
   const handleChange = (e) => {
     e.preventDefault();
     const { value, name } = e.target;
-    setLoginInfo({ [name]: value });
+    setLoginInfo((LoginInfo) => ({ ...LoginInfo, [name]: value }));
   };
 
   return (

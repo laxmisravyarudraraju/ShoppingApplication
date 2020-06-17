@@ -4,6 +4,8 @@ import { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { TextField, Typography, Button } from "@material-ui/core";
 
+import { auth, createUserProfile } from "./../../firebase/firebase.config";
+
 import LoginPageStyles from "./../LoginPage/styles";
 
 const useStyles = makeStyles(LoginPageStyles);
@@ -18,17 +20,32 @@ export const Register = (props) => {
     confirmPassword: "",
   };
 
-  const [SignUpinfo, setSignUpInfo] = useState(initialValues);
+  const [SignUpInfo, setSignUpInfo] = useState(initialValues);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSignUpInfo(initialValues);
+    const { name, email, password, confirmPassword } = SignUpInfo;
+    if (password !== confirmPassword) {
+      alert("passwords do not match");
+      console.log("passwords dont match");
+      return;
+    }
+    try {
+      const { userAuth } = await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      await createUserProfile(userAuth, { name });
+      setSignUpInfo(initialValues);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const handleChange = (e) => {
     e.preventDefault();
     const { value, name } = e.target;
-    setSignUpInfo({ [name]: value });
+    setSignUpInfo((SignUpInfo) => ({ ...SignUpInfo, [name]: value }));
   };
 
   return (
@@ -39,7 +56,7 @@ export const Register = (props) => {
       <Typography className={classes.formTitle} variant="subtitle2">
         Sign Up with your email and password
       </Typography>
-      <form onSubmit={handleChange} autoComplete="off" className={classes.form}>
+      <form onSubmit={handleSubmit} autoComplete="off" className={classes.form}>
         <TextField
           id="standard-basic name"
           name="name"
