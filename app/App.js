@@ -1,20 +1,24 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import { Container } from "@material-ui/core";
 
 import { auth, createUserProfile, firestore } from "./firebase/firebase.config";
-import { Header } from "./components/Header/Header";
+import Header from "./components/Header/Header";
 import { Homepage } from "./components/Homepage/Homepage";
 import { ShopPage } from "./components/ShopPage/ShopPage";
 import { LoginPage } from "./components/LoginPage/LoginPage";
 
+import { setCurrentUser } from "./Redux/Users/Actions";
+
 import "./styles.css";
 
-const App = () => {
-  const [currentUser, setCurrentUser] = useState({ id: "" });
+const App = ({ currentUser, setCurrentUser }) => {
+  // const [currentUser, setCurrentUser] = useState({ id: "" });
 
   useEffect(() => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
@@ -26,6 +30,7 @@ const App = () => {
             ...snapshot.data(),
           });
         });
+        return;
       }
       setCurrentUser(userAuth);
     });
@@ -35,14 +40,26 @@ const App = () => {
 
   return (
     <Container maxWidth="lg">
-      <Header currentUser={currentUser} />
+      <Header />
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route path="/shop" component={ShopPage} />
-        <Route path="/login" component={LoginPage} />
+        <Route
+          exact
+          path="/login"
+          render={() => (currentUser ? <Redirect to="/" /> : <LoginPage />)}
+        />
       </Switch>
     </Container>
   );
 };
 
-export default App;
+const getState = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+const dispatchAction = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+});
+
+export default connect(getState, dispatchAction)(App);

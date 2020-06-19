@@ -2,6 +2,8 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
+import { connect } from "react-redux";
+
 import { makeStyles } from "@material-ui/core/styles";
 import {
   AppBar,
@@ -19,7 +21,7 @@ import HeaderStyles from "./styles";
 
 const useStyles = makeStyles((theme) => HeaderStyles);
 
-export const Header = (props) => {
+const Header = (props) => {
   const classes = useStyles();
 
   return (
@@ -43,17 +45,15 @@ export const Header = (props) => {
               </Button>
             </Link>
             {props.currentUser ? (
-              <Link className="link" to="/">
-                <Button
-                  className={classes.button}
-                  color="primary"
-                  variant="outlined"
-                  style={{ fontWeight: 600 }}
-                  onClick={() => auth.signOut()}
-                >
-                  Logout
-                </Button>
-              </Link>
+              <Button
+                className={classes.button}
+                color="primary"
+                variant="outlined"
+                style={{ fontWeight: 600 }}
+                onClick={() => auth.signOut()}
+              >
+                Logout
+              </Button>
             ) : (
               <Link className="link" to="/login">
                 <Button
@@ -72,3 +72,9 @@ export const Header = (props) => {
     </React.Fragment>
   );
 };
+
+const getState = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(getState)(Header);
