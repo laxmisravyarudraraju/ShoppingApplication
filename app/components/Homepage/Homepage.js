@@ -1,3 +1,11 @@
 import React from "react";
 
-export const Homepage = (props) => {};
+import { CategoryList } from "../CategoryList/CategoryList";
+
+export const Homepage = (props) => {
+  return (
+    <React.Fragment>
+      <CategoryList />
+    </React.Fragment>
+  );
+};
