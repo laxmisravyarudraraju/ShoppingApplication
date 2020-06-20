@@ -24,4 +24,8 @@ export default {
   menu: {
     maxHeight: "500px",
   },
+  text: {
+    textTransform: "uppercase",
+    padding: "20px 30px",
+  },
 };

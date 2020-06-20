@@ -2,7 +2,6 @@ import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import {
-  MenuItem,
   ListItemText,
   ListItemAvatar,
   Avatar,
@@ -22,8 +21,8 @@ const CartItem = (props) => {
         <Avatar
           className={classes.avatar}
           variant="square"
-          src="https://i.ibb.co/QdJwgmp/brown-cowboy.png"
-          alt=""
+          src={props.imageUrl}
+          alt={props.title}
         />
       </ListItemAvatar>
       <ListItemText
@@ -32,10 +31,12 @@ const CartItem = (props) => {
             variant="subtitle2"
             style={{ textTransform: "uppercase" }}
           >
-            Brown Cowboy
+            {props.title}
           </Typography>
         }
-        secondary={<Typography variant="subtitle2">2 &times; $30</Typography>}
+        secondary={
+          <Typography variant="subtitle2">2 &times; {props.price}</Typography>
+        }
       ></ListItemText>
     </React.Fragment>
   );

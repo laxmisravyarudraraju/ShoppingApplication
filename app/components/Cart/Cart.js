@@ -8,9 +8,6 @@ import {
   Menu,
   IconButton,
   MenuItem,
-  ListItemText,
-  ListItemAvatar,
-  Avatar,
   Typography,
 } from "@material-ui/core";
 
@@ -59,21 +56,42 @@ export const Cart = (props) => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem className={classes.item}>
-          <CartItem />
-        </MenuItem>
+        {props.length > 0 ? (
+          <React.Fragment>
+            <MenuItem className={classes.item}>
+              <CartItem />
+            </MenuItem>
 
-        <div className={classes.buttonWrapper}>
-          <Link class="link" to="/cart">
-            <Button
-              variant="outlined"
-              color="secondary"
-              className={classes.button}
-            >
-              Go to checkout
-            </Button>
-          </Link>
-        </div>
+            <div className={classes.buttonWrapper}>
+              <Link className="link" to="/cart">
+                <Button
+                  variant="outlined"
+                  color="secondary"
+                  className={classes.button}
+                >
+                  Go to checkout
+                </Button>
+              </Link>
+            </div>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <Typography className={classes.text} variant="subtitle2">
+              Nothing in your cart
+            </Typography>
+            <div className={classes.buttonWrapper}>
+              <Link className="link" to="/shop">
+                <Button
+                  className={classes.button}
+                  variant="outlined"
+                  color="primary"
+                >
+                  Shop here
+                </Button>
+              </Link>
+            </div>
+          </React.Fragment>
+        )}
       </Menu>
     </React.Fragment>
   );
