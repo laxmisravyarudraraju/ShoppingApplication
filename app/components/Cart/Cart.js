@@ -1,5 +1,7 @@
 import React from "react";
 
+import { connect } from "react-redux";
+
 import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -19,7 +21,7 @@ import CartItem from "./../CartItem/CartItem";
 
 const useStyles = makeStyles(CartStyles);
 
-export const Cart = (props) => {
+const Cart = ({ cartItems }) => {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -56,12 +58,8 @@ export const Cart = (props) => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        {props.length > 0 ? (
-          <React.Fragment>
-            <MenuItem className={classes.item}>
-              <CartItem />
-            </MenuItem>
-
+        {cartItems.length > 0 ? (
+          <div>
             <div className={classes.buttonWrapper}>
               <Link className="link" to="/cart">
                 <Button
@@ -73,9 +71,14 @@ export const Cart = (props) => {
                 </Button>
               </Link>
             </div>
-          </React.Fragment>
+            {cartItems.map((cartItem) => (
+              <MenuItem className={classes.item}>
+                <CartItem cartItem={cartItem} />
+              </MenuItem>
+            ))}
+          </div>
         ) : (
-          <React.Fragment>
+          <div>
             <Typography className={classes.text} variant="subtitle2">
               Nothing in your cart
             </Typography>
@@ -90,9 +93,15 @@ export const Cart = (props) => {
                 </Button>
               </Link>
             </div>
-          </React.Fragment>
+          </div>
         )}
       </Menu>
     </React.Fragment>
   );
 };
+
+const getState = (state) => ({
+  cartItems: state.cart.cartItems,
+});
+
+export default connect(getState)(Cart);

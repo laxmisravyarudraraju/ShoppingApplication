@@ -19,7 +19,7 @@ import { auth } from "../../firebase/firebase.config";
 
 import HeaderStyles from "./styles";
 
-import { Cart } from "./../Cart/Cart";
+import Cart from "./../Cart/Cart";
 
 const useStyles = makeStyles((theme) => HeaderStyles);
 

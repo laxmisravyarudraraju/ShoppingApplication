@@ -8,6 +8,10 @@ export default {
     backgroundColor: "#fff",
     zIndex: 500,
   },
+  menu: {
+    maxHeight: "500px",
+    position: "relative",
+  },
   buttonWrapper: {
     width: "100%",
     textAlign: "center",
@@ -20,9 +24,6 @@ export default {
   item: {
     marginBottom: "10px",
     padding: "10px 15px",
-  },
-  menu: {
-    maxHeight: "500px",
   },
   text: {
     textTransform: "uppercase",

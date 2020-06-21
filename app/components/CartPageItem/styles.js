@@ -4,7 +4,7 @@ export default {
     textAlign: "center",
   },
   avatar: {
-    height: "105px",
+    height: "120px",
     width: "100px",
     marginRight: 0,
   },

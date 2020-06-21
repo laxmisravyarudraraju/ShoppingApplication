@@ -17,7 +17,7 @@ import CartPageItemStyles from "./styles";
 
 const useStyles = makeStyles(CartPageItemStyles);
 
-const CartPageItem = (props) => {
+const CartPageItem = ({ cartItem }) => {
   const classes = useStyles();
 
   return (
@@ -25,14 +25,14 @@ const CartPageItem = (props) => {
       <TableCell className={classes.tableCell}>
         <Avatar
           className={classes.avatar}
-          src={props.imageUrl}
-          alt={props.title}
+          src={cartItem.imageUrl}
+          alt={cartItem.name}
           variant="square"
         ></Avatar>
       </TableCell>
       <TableCell className={classes.tableCell}>
         <Typography className={classes.text} variant="subtitle2">
-          {props.title}
+          {cartItem.name}
         </Typography>
       </TableCell>
       <TableCell className={classes.tableCell}>
@@ -48,7 +48,7 @@ const CartPageItem = (props) => {
       </TableCell>
       <TableCell className={classes.tableCell}>
         <Typography className={classes.text} variant="subtitle1">
-          $ {props.price}
+          $ {cartItem.price}
         </Typography>
       </TableCell>
       <TableCell className={classes.tableCell}>

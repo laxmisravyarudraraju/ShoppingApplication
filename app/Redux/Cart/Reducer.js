@@ -1,15 +1,14 @@
-import { UserActionTypes } from "./ActionTypes";
+import { CartActionTypes } from "./ActionTypes";
 
 const INITIAL_STATE = {
-  currentUser: null,
+  cartItems: [],
 };
 
 export default (prevState = INITIAL_STATE, action) => {
   switch (action.type) {
-    case UserActionTypes.setCurrentUser:
+    case CartActionTypes.addItemToCart:
       return {
-        ...prevState,
-        currentUser: action.payload,
+        cartItems: [...prevState.cartItems, action.payload],
       };
     default:
       return prevState;

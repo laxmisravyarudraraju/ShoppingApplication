@@ -1,5 +1,7 @@
 import React from "react";
 
+import { connect } from "react-redux";
+
 import { makeStyles } from "@material-ui/core/styles";
 import {
   ListItemText,
@@ -12,7 +14,7 @@ import CartItemStyles from "./styles";
 
 const useStyles = makeStyles(CartItemStyles);
 
-const CartItem = (props) => {
+const CartItem = ({ cartItem }) => {
   const classes = useStyles();
 
   return (
@@ -21,8 +23,8 @@ const CartItem = (props) => {
         <Avatar
           className={classes.avatar}
           variant="square"
-          src={props.imageUrl}
-          alt={props.title}
+          src={cartItem.imageUrl}
+          alt={cartItem.name}
         />
       </ListItemAvatar>
       <ListItemText
@@ -31,11 +33,13 @@ const CartItem = (props) => {
             variant="subtitle2"
             style={{ textTransform: "uppercase" }}
           >
-            {props.title}
+            {cartItem.name}
           </Typography>
         }
         secondary={
-          <Typography variant="subtitle2">2 &times; {props.price}</Typography>
+          <Typography variant="subtitle2">
+            2 &times; {cartItem.price}
+          </Typography>
         }
       ></ListItemText>
     </React.Fragment>

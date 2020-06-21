@@ -1,5 +1,7 @@
 import React from "react";
 
+import { connect } from "react-redux";
+
 import { makeStyles } from "@material-ui/core/styles";
 import {
   TableContainer,
@@ -16,7 +18,7 @@ import CartPageItem from "./../CartPageItem/CartPageItem";
 
 const useStyles = makeStyles(CartPageListStyles);
 
-const CartPageList = (props) => {
+const CartPageList = ({ cartItems }) => {
   const classes = useStyles();
 
   return (
@@ -32,11 +34,17 @@ const CartPageList = (props) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <CartPageItem />
+          {cartItems.map((cartItem) => (
+            <CartPageItem cartItem={cartItem} />
+          ))}
         </TableBody>
       </Table>
     </TableContainer>
   );
 };
 
-export default CartPageList;
+const getState = (state) => ({
+  cartItems: state.cart.cartItems,
+});
+
+export default connect(getState)(CartPageList);
