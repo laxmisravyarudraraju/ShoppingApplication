@@ -47,7 +47,7 @@ const Cart = ({ cartItems }) => {
             fontSize: "14px",
           }}
         >
-          3
+          {cartItems.length}
         </span>
       </IconButton>
       <Menu

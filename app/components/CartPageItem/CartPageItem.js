@@ -59,7 +59,7 @@ const CartPageItem = ({ cartItem, deleteItemFromCart, cartItems }) => {
         <IconButton
           onClick={() =>
             deleteItemFromCart(
-              cartItems.findIndex((cartItem) => cartItem.id === cartItem.id)
+              cartItems.findIndex((item) => item.id === cartItem.id)
             )
           }
           color="secondary"
