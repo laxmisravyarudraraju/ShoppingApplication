@@ -10,6 +10,7 @@ import {
   TableRow,
   TableBody,
   TableCell,
+  Typography,
 } from "@material-ui/core";
 
 import CartPageListStyles from "./styles";
@@ -34,9 +35,15 @@ const CartPageList = ({ cartItems }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {cartItems.map((cartItem) => (
-            <CartPageItem cartItem={cartItem} />
-          ))}
+          {cartItems.length > 0 ? (
+            cartItems.map((cartItem) => (
+              <CartPageItem key={cartItem.id} cartItem={cartItem} />
+            ))
+          ) : (
+            <div className={classes.noItemsContainer}>
+              <Typography variant="subtitle2">No Item in your cart</Typography>
+            </div>
+          )}
         </TableBody>
       </Table>
     </TableContainer>

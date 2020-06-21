@@ -5,6 +5,11 @@ export const addItemToCart = (item) => ({
   payload: item,
 });
 
+export const deleteItemFromCart = (index) => ({
+  type: CartActionTypes.deleteItemFromCart,
+  payload: index,
+});
+
 export const increaseByOne = (count) => ({
   type: CartActionTypes.increaseByOne,
   payload: count++,

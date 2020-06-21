@@ -38,7 +38,7 @@ const CartItem = ({ cartItem }) => {
         }
         secondary={
           <Typography variant="subtitle2">
-            2 &times; {cartItem.price}
+            2 &times; ${cartItem.price}
           </Typography>
         }
       ></ListItemText>

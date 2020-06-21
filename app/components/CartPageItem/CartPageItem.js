@@ -1,5 +1,7 @@
 import React from "react";
 
+import { connect } from "react-redux";
+
 import { makeStyles } from "@material-ui/core/styles";
 import {
   TableRow,
@@ -13,11 +15,13 @@ import ArrowLeft from "@material-ui/icons/ChevronLeftRounded";
 import ArrowRight from "@material-ui/icons/ChevronRightRounded";
 import CloseIcon from "@material-ui/icons/CloseRounded";
 
+import { deleteItemFromCart } from "./../../Redux/Cart/Actions";
+
 import CartPageItemStyles from "./styles";
 
 const useStyles = makeStyles(CartPageItemStyles);
 
-const CartPageItem = ({ cartItem }) => {
+const CartPageItem = ({ cartItem, deleteItemFromCart, cartItems }) => {
   const classes = useStyles();
 
   return (
@@ -52,7 +56,14 @@ const CartPageItem = ({ cartItem }) => {
         </Typography>
       </TableCell>
       <TableCell className={classes.tableCell}>
-        <IconButton color="secondary">
+        <IconButton
+          onClick={() =>
+            deleteItemFromCart(
+              cartItems.findIndex((cartItem) => cartItem.id === cartItem.id)
+            )
+          }
+          color="secondary"
+        >
           <CloseIcon />
         </IconButton>
       </TableCell>
@@ -60,4 +71,12 @@ const CartPageItem = ({ cartItem }) => {
   );
 };
 
-export default CartPageItem;
+const getState = (state) => ({
+  cartItems: state.cart.cartItems,
+});
+
+const dispatchAction = (dispatch) => ({
+  deleteItemFromCart: (index) => dispatch(deleteItemFromCart(index)),
+});
+
+export default connect(getState, dispatchAction)(CartPageItem);

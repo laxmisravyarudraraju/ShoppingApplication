@@ -72,7 +72,7 @@ const Cart = ({ cartItems }) => {
               </Link>
             </div>
             {cartItems.map((cartItem) => (
-              <MenuItem className={classes.item}>
+              <MenuItem key={cartItem.id} className={classes.item}>
                 <CartItem cartItem={cartItem} />
               </MenuItem>
             ))}

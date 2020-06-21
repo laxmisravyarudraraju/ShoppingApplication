@@ -8,7 +8,7 @@ import FavoriteOutlined from "@material-ui/icons/FavoriteBorderRounded";
 
 import CategoryItemStyles from "./styles";
 
-import { addItemToCart } from "./../../Redux/Cart/Actions";
+import { addItemToCart, deleteItemFromCart } from "./../../Redux/Cart/Actions";
 
 const useStyles = makeStyles(CategoryItemStyles);
 
@@ -23,9 +23,14 @@ const styles = {
   },
 };
 
-const CategoryItem = ({ item, cartItems, addItemToCart }) => {
+const CategoryItem = ({
+  item,
+  cartItems,
+  addItemToCart,
+  deleteItemFromCart,
+}) => {
   const classes = useStyles();
-  const { id, price, name, imageUrl } = item;
+  const { price, name, imageUrl } = item;
 
   return (
     <React.Fragment>
@@ -37,6 +42,11 @@ const CategoryItem = ({ item, cartItems, addItemToCart }) => {
         <img src={imageUrl} alt={name} style={styles.img} />
         {cartItems.includes(item) ? (
           <Button
+            onClick={() =>
+              deleteItemFromCart(
+                cartItems.findIndex((cartItem) => cartItem.id === item.id)
+              )
+            }
             variant="outlined"
             color="inherit"
             className={classes.priceBox}
@@ -69,6 +79,7 @@ const getState = (state) => ({
 
 const dispatchAction = (dispatch) => ({
   addItemToCart: (item) => dispatch(addItemToCart(item)),
+  deleteItemFromCart: (index) => dispatch(deleteItemFromCart(index)),
 });
 
 export default connect(getState, dispatchAction)(CategoryItem);
