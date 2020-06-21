@@ -19,6 +19,26 @@ import CartPageItem from "./../CartPageItem/CartPageItem";
 
 const useStyles = makeStyles(CartPageListStyles);
 
+const countAndRenderItems = (cartItems) => {
+  const items = cartItems.reduce((items, currentItem) => {
+    const { id } = currentItem;
+    items[id] = items[id] ? [...items[id], currentItem] : [currentItem];
+    return items;
+  }, {});
+
+  return (
+    <React.Fragment>
+      {Object.values(items).map((item) => (
+        <CartPageItem
+          key={item[0].id}
+          quantity={item.length}
+          cartItem={item[0]}
+        />
+      ))}
+    </React.Fragment>
+  );
+};
+
 const CartPageList = ({ cartItems }) => {
   const classes = useStyles();
 
@@ -36,9 +56,7 @@ const CartPageList = ({ cartItems }) => {
         </TableHead>
         <TableBody>
           {cartItems.length > 0 ? (
-            cartItems.map((cartItem) => (
-              <CartPageItem key={cartItem.id} cartItem={cartItem} />
-            ))
+            countAndRenderItems(cartItems)
           ) : (
             <div className={classes.noItemsContainer}>
               <Typography variant="subtitle2">No Item in your cart</Typography>

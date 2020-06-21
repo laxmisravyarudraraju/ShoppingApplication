@@ -15,13 +15,19 @@ import ArrowLeft from "@material-ui/icons/ChevronLeftRounded";
 import ArrowRight from "@material-ui/icons/ChevronRightRounded";
 import CloseIcon from "@material-ui/icons/CloseRounded";
 
-import { deleteItemFromCart } from "./../../Redux/Cart/Actions";
+import { deleteItemFromCart, addItemToCart } from "./../../Redux/Cart/Actions";
 
 import CartPageItemStyles from "./styles";
 
 const useStyles = makeStyles(CartPageItemStyles);
 
-const CartPageItem = ({ cartItem, deleteItemFromCart, cartItems }) => {
+const CartPageItem = ({
+  cartItem,
+  quantity,
+  addItemToCart,
+  deleteItemFromCart,
+  cartItems,
+}) => {
   const classes = useStyles();
 
   return (
@@ -44,8 +50,13 @@ const CartPageItem = ({ cartItem, deleteItemFromCart, cartItems }) => {
           <IconButton color="primary">
             <ArrowLeft />
           </IconButton>
-          <Typography>6</Typography>
-          <IconButton color="primary">
+          <Typography>
+            {cartItems.reduce(
+              (acc, cur) => (cur.id === cartItem.id ? acc + 1 : acc),
+              0
+            )}
+          </Typography>
+          <IconButton color="primary" onClick={() => addItemToCart(cartItem)}>
             <ArrowRight />
           </IconButton>
         </div>
@@ -76,6 +87,7 @@ const getState = (state) => ({
 });
 
 const dispatchAction = (dispatch) => ({
+  addItemToCart: (item) => dispatch(addItemToCart(item)),
   deleteItemFromCart: (index) => dispatch(deleteItemFromCart(index)),
 });
 

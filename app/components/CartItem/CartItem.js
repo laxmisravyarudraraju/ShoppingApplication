@@ -14,7 +14,7 @@ import CartItemStyles from "./styles";
 
 const useStyles = makeStyles(CartItemStyles);
 
-const CartItem = ({ cartItem }) => {
+const CartItem = ({ cartItem, quantity }) => {
   const classes = useStyles();
 
   return (
@@ -38,7 +38,7 @@ const CartItem = ({ cartItem }) => {
         }
         secondary={
           <Typography variant="subtitle2">
-            2 &times; ${cartItem.price}
+            {quantity} &times; ${cartItem.price}
           </Typography>
         }
       ></ListItemText>
