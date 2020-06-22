@@ -80,7 +80,7 @@ const Cart = ({ cartItems }) => {
         ) : (
           <div>
             <Typography className={classes.text} variant="subtitle2">
-              Nothing in your cart
+              Your cart is empty
             </Typography>
             <div className={classes.buttonWrapper}>
               <Link className="link" to="/shop">

@@ -3,17 +3,17 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
 
-import CartPageStyles from "./styles";
-import CartPageList from "./../CartPageList/CartPageList";
+import CheckoutPageStyles from "./styles";
+import CheckoutPageList from "../CheckoutPageList/CheckoutPageList";
 
-const useStyles = makeStyles(CartPageStyles);
+const useStyles = makeStyles(CheckoutPageStyles);
 
-export const CartPage = (props) => {
+export const CheckoutPage = (props) => {
   const classes = useStyles();
 
   return (
     <React.Fragment>
-      <CartPageList />
+      <CheckoutPageList />
       <div className={classes.buttonWrapper}>
         <Button color="primary" variant="outlined" className={classes.button}>
           Checkout

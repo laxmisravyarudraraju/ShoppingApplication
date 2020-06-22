@@ -13,13 +13,13 @@ import {
   Typography,
 } from "@material-ui/core";
 
-import CartPageListStyles from "./styles";
+import CheckoutPageListStyles from "./styles";
 
-import CartPageItem from "./../CartPageItem/CartPageItem";
+import CheckoutPageItem from "../CheckoutPageItem/CheckoutPageItem";
 
-const useStyles = makeStyles(CartPageListStyles);
+const useStyles = makeStyles(CheckoutPageListStyles);
 
-const CartPageList = ({ cartItems }) => {
+const CheckoutPageList = ({ cartItems }) => {
   const classes = useStyles();
 
   return (
@@ -37,7 +37,7 @@ const CartPageList = ({ cartItems }) => {
         <TableBody>
           {cartItems.length > 0 ? (
             cartItems.map((item) => (
-              <CartPageItem
+              <CheckoutPageItem
                 key={item.id}
                 quantity={item.quantity}
                 cartItem={item}
@@ -45,7 +45,7 @@ const CartPageList = ({ cartItems }) => {
             ))
           ) : (
             <div className={classes.noItemsContainer}>
-              <Typography variant="subtitle2">No Item in your cart</Typography>
+              <Typography variant="subtitle2">No Items in your cart</Typography>
             </div>
           )}
         </TableBody>
@@ -58,4 +58,4 @@ const getState = (state) => ({
   cartItems: state.cart.cartItems,
 });
 
-export default connect(getState)(CartPageList);
+export default connect(getState)(CheckoutPageList);

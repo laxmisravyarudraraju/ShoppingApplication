@@ -15,13 +15,13 @@ import ArrowLeft from "@material-ui/icons/ChevronLeftRounded";
 import ArrowRight from "@material-ui/icons/ChevronRightRounded";
 import CloseIcon from "@material-ui/icons/CloseRounded";
 
-import { deleteItemFromCart, addItemToCart } from "./../../Redux/Cart/Actions";
+import { deleteItemFromCart, addItemToCart } from "../../Redux/Cart/Actions";
 
-import CartPageItemStyles from "./styles";
+import CheckoutPageItemStyles from "./styles";
 
-const useStyles = makeStyles(CartPageItemStyles);
+const useStyles = makeStyles(CheckoutPageItemStyles);
 
-const CartPageItem = ({
+const CheckoutPageItem = ({
   cartItem,
   quantity,
   addItemToCart,
@@ -86,4 +86,4 @@ const dispatchAction = (dispatch) => ({
   deleteItemFromCart: (index) => dispatch(deleteItemFromCart(index)),
 });
 
-export default connect(getState, dispatchAction)(CartPageItem);
+export default connect(getState, dispatchAction)(CheckoutPageItem);
