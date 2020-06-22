@@ -1,4 +1,5 @@
 import { CartActionTypes } from "./ActionTypes";
+import { addItemToCart } from "./Utils";
 
 const INITIAL_STATE = {
   cartItems: [],
@@ -8,7 +9,7 @@ export default (prevState = INITIAL_STATE, action) => {
   switch (action.type) {
     case CartActionTypes.addItemToCart:
       return {
-        cartItems: [...prevState.cartItems, action.payload],
+        cartItems: addItemToCart(prevState.cartItems, action.payload),
       };
     case CartActionTypes.deleteItemFromCart:
       const cartItems = [...prevState.cartItems];

@@ -40,7 +40,7 @@ const CategoryItem = ({
           <Typography variant="subtitle1">{name}</Typography>
         </div>
         <img src={imageUrl} alt={name} style={styles.img} />
-        {cartItems.includes(item) ? (
+        {cartItems.find((el) => el.id === item.id) ? (
           <Button
             onClick={() =>
               deleteItemFromCart(

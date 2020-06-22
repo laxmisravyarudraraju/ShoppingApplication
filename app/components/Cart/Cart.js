@@ -26,24 +26,6 @@ const Cart = ({ cartItems }) => {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const countAndRenderItems = (cartItems) => {
-    const items = cartItems.reduce((items, currentItem) => {
-      const { id } = currentItem;
-      items[id] = items[id] ? [...items[id], currentItem] : [currentItem];
-      return items;
-    }, {});
-
-    return (
-      <React.Fragment>
-        {Object.values(items).map((item) => (
-          <MenuItem key={item[0].id} className={classes.item}>
-            <CartItem quantity={item.length} cartItem={item[0]} />
-          </MenuItem>
-        ))}
-      </React.Fragment>
-    );
-  };
-
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -65,7 +47,7 @@ const Cart = ({ cartItems }) => {
             fontSize: "14px",
           }}
         >
-          {cartItems.length}
+          {cartItems.reduce((acc, cur) => acc + cur.quantity, 0)}
         </span>
       </IconButton>
       <Menu
@@ -89,7 +71,11 @@ const Cart = ({ cartItems }) => {
                 </Button>
               </Link>
             </div>
-            {countAndRenderItems(cartItems)}
+            {cartItems.map((item) => (
+              <MenuItem key={item.id} className={classes.item}>
+                <CartItem quantity={item.quantity} cartItem={item} />
+              </MenuItem>
+            ))}
           </div>
         ) : (
           <div>

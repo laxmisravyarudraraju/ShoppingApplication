@@ -50,12 +50,7 @@ const CartPageItem = ({
           <IconButton color="primary">
             <ArrowLeft />
           </IconButton>
-          <Typography>
-            {cartItems.reduce(
-              (acc, cur) => (cur.id === cartItem.id ? acc + 1 : acc),
-              0
-            )}
-          </Typography>
+          <Typography>{quantity}</Typography>
           <IconButton color="primary" onClick={() => addItemToCart(cartItem)}>
             <ArrowRight />
           </IconButton>
