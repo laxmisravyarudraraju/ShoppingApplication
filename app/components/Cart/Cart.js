@@ -16,7 +16,6 @@ import {
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCartOutlined";
 
 import CartStyles from "./styles";
-
 import CartItem from "./../CartItem/CartItem";
 
 const useStyles = makeStyles(CartStyles);
