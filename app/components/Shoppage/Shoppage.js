@@ -5,11 +5,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 
 import ShopData from "./ShopData";
-import ShoppageStyles from "./styles";
+import ShopPageStyles from "./styles";
 
 import { Preview } from "../Preview/Preview";
 
-const useStyles = makeStyles(ShoppageStyles);
+const useStyles = makeStyles(ShopPageStyles);
 
 export const ShopPage = (props) => {
   const [items, setItems] = useState(ShopData);

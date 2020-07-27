@@ -12,6 +12,7 @@ import Header from "./components/Header/Header";
 import { Homepage } from "./components/Homepage/Homepage";
 import { ShopPage } from "./components/ShopPage/ShopPage";
 import { LoginPage } from "./components/LoginPage/LoginPage";
+import { CheckoutPage } from "./components/CheckoutPage/CheckoutPage";
 
 import { setCurrentUser } from "./Redux/Users/Actions";
 
@@ -49,6 +50,7 @@ const App = ({ currentUser, setCurrentUser }) => {
           path="/login"
           render={() => (currentUser ? <Redirect to="/" /> : <LoginPage />)}
         />
+        <Route path="/cart" component={CheckoutPage} />
       </Switch>
     </Container>
   );

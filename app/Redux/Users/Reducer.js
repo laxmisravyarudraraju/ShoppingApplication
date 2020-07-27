@@ -1,10 +1,10 @@
 import { UserActionTypes } from "./ActionTypes";
 
-const initialState = {
+const INITIAL_STATE = {
   currentUser: null,
 };
 
-export default (prevState = initialState, action) => {
+export default (prevState = INITIAL_STATE, action) => {
   switch (action.type) {
     case UserActionTypes.setCurrentUser:
       return {

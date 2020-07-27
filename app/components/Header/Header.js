@@ -13,11 +13,13 @@ import {
   IconButton,
 } from "@material-ui/core";
 
-import LocalMallRoundedIcon from "@material-ui/icons/LocalMallRounded";
+import ShopIcon from "@material-ui/icons/LocalMallRounded";
 
 import { auth } from "../../firebase/firebase.config";
 
 import HeaderStyles from "./styles";
+
+import Cart from "./../Cart/Cart";
 
 const useStyles = makeStyles((theme) => HeaderStyles);
 
@@ -36,7 +38,7 @@ const Header = (props) => {
           <div className={classes.headerNav}>
             <Link className="link" to="/shop">
               <IconButton className={classes.button}>
-                <LocalMallRoundedIcon />
+                <ShopIcon />
               </IconButton>
             </Link>
             <Link className="link" to="/contact">
@@ -44,16 +46,20 @@ const Header = (props) => {
                 Contact
               </Button>
             </Link>
+
             {props.currentUser ? (
-              <Button
-                className={classes.button}
-                color="primary"
-                variant="outlined"
-                style={{ fontWeight: 600 }}
-                onClick={() => auth.signOut()}
-              >
-                Logout
-              </Button>
+              <React.Fragment>
+                <Button
+                  className={classes.button}
+                  color="primary"
+                  variant="outlined"
+                  style={{ fontWeight: 600 }}
+                  onClick={() => auth.signOut()}
+                >
+                  Logout
+                </Button>
+                <Cart />
+              </React.Fragment>
             ) : (
               <Link className="link" to="/login">
                 <Button
